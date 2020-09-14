@@ -97,14 +97,14 @@ print(", ".join(seg_list))
 
 * 范例：
 
-    * 自定义词典：https://github.com/fxsjy/lawa/blob/master/test/userdict.txt
+    * 自定义词典：https://github.com/shendezhou/lawa/blob/master/lawa/law_term.dic
 
-    * 用法示例：https://github.com/fxsjy/lawa/blob/master/test/test_userdict.py
+    * 用法示例：https://github.com/shendezhou/lawa/blob/master/lawa.py
 
 
-        * 之前： 李小福 / 是 / 创新 / 办 / 主任 / 也 / 是 / 云 / 计算 / 方面 / 的 / 专家 /
+        * 之前： 李小福 / 是 / 创新 / 办 / 主任 / 也 / 是 / 云 / 计算 / 方面 / 的 / 专家 
 
-        * 加载自定义词库后：　李小福 / 是 / 创新办 / 主任 / 也 / 是 / 云计算 / 方面 / 的 / 专家 /
+        * 加载自定义词库后：　李小福 / 是 / 创新办 / 主任 / 也 / 是 / 云计算 / 方面 / 的 / 专家 
 
 ### 调整词典
 
