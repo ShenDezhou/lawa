@@ -40,10 +40,16 @@ GitHub: https://github.com/ShenDezhou/lawa
 -  手动安装：将 lawa 目录放置于当前目录或者 site-packages 目录
 -  通过 ``import lawa`` 来引用
 
+词典介绍
+=========
+
+* law_doc.dic和law_term.dic是使用了法规、期刊以及案例标题统计的文档频和词频字典。
+* case_doc.dic和case_term.dic是案例全文统计的文档频和词频字典。
+* lawa_doc.dic和lawa_term.dic是融合和法规、案例和期刊全部特征统计的文档频和词频字典，默认使用`lawa_doc.dic`作为词典加载。
 """
 
 setup(name='lawa',
-      version='1.1.0',
+      version='1.2.0',
       description='Chinese Words Segmentation Utilities',
       long_description=LONGDOC,
       author='Shen Dezhou',

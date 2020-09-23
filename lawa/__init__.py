@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 
-__version__ = '20.1.0'
+__version__ = '1.2.0'
 __license__ = 'MIT'
 
 import marshal
@@ -22,7 +22,7 @@ else:
 _get_abs_path = lambda path: os.path.normpath(os.path.join(os.getcwd(), path))
 
 DEFAULT_DICT = None
-DEFAULT_DICT_NAME = "law_doc.dic"
+DEFAULT_DICT_NAME = "lawa_doc.dic"
 
 log_console = logging.StreamHandler(sys.stderr)
 default_logger = logging.getLogger(__name__)

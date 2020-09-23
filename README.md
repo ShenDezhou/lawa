@@ -129,3 +129,9 @@ print(", ".join(seg_list))
 >>> print('/'.join(lawa.cut('「台中」正确应该不会被切开', HMM=False)))
 「/台中/」/正确/应该/不会/被/切开
 ```
+
+### 词典介绍
+
+* law_doc.dic和law_term.dic是使用了法规、期刊以及案例标题统计的文档频和词频字典。
+* case_doc.dic和case_term.dic是案例全文统计的文档频和词频字典。
+* lawa_doc.dic和lawa_term.dic是融合和法规、案例和期刊全部特征统计的文档频和词频字典，默认使用`lawa_doc.dic`作为词典加载。
