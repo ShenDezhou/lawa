@@ -50,12 +50,13 @@ GitHub: https://github.com/ShenDezhou/lawa
 中文全角字符
 ============
 
-* 对于全集字符同样看作ASCII字符（英文字符）进行处理。
+* 对于全角字符同样看作ASCII字符（英文字符）进行处理：
+    * 例：“---６０００元” 分成  -, -, -, ６０００, 元
 """
 
 
 setup(name='lawa',
-      version='1.2.3',
+      version='1.2.4',
       description='Chinese Words Segmentation Utilities',
       long_description=LONGDOC,
       author='Shen Dezhou',
@@ -76,6 +77,11 @@ setup(name='lawa',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Text Processing',
         'Topic :: Text Processing :: Indexing',
         'Topic :: Text Processing :: Linguistic',
