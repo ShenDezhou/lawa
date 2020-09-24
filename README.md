@@ -135,3 +135,7 @@ print(", ".join(seg_list))
 * law_doc.dic和law_term.dic是使用了法规、期刊以及案例标题统计的文档频和词频字典。
 * case_doc.dic和case_term.dic是案例全文统计的文档频和词频字典。
 * lawa_doc.dic和lawa_term.dic是融合和法规、案例和期刊全部特征统计的文档频和词频字典，默认使用`lawa_doc.dic`作为词典加载。
+
+### 中文全角字符
+
+* 对于全集字符同样看作ASCII字符（英文字符）进行处理。
