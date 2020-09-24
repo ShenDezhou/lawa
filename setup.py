@@ -49,7 +49,7 @@ GitHub: https://github.com/ShenDezhou/lawa
 """
 
 setup(name='lawa',
-      version='1.2.0',
+      version='1.2.1',
       description='Chinese Words Segmentation Utilities',
       long_description=LONGDOC,
       author='Shen Dezhou',
