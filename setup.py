@@ -55,7 +55,7 @@ GitHub: https://github.com/ShenDezhou/lawa
 
 
 setup(name='lawa',
-      version='1.2.2',
+      version='1.2.3',
       description='Chinese Words Segmentation Utilities',
       long_description=LONGDOC,
       author='Shen Dezhou',
