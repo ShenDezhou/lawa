@@ -1,7 +1,7 @@
 import lawa as lawa
 
 #用词频来表示语言模型,默认为文档频(law_doc.dic).
-lawa.load_userdict('lawa/law_term.dic')
+lawa.load_userdict('lawa/lawa_term.dic')
 
 
 seg_list = lawa.cut("本法所称转移土地、房屋权属，是指下列行为", cut_all=True)
