@@ -23,3 +23,7 @@ print(", ".join(seg_list))
 
 seg_list = lawa.cut_for_search("在中华人民共和国境内缴纳增值税、消费税的单位和个人，为城市维护建设税的纳税人，应当依照本法规定缴纳城市维护建设税。")  # 搜索引擎模式
 print(", ".join(seg_list))
+
+#FF01-FF5F
+seg_list = lawa.cut("６０００元")  # 默认是精确模式
+print(", ".join(seg_list))
