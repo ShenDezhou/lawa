@@ -57,11 +57,16 @@ GitHub: https://github.com/ShenDezhou/lawa
 =============
 
 * 从中文维基和百度百科收集了一些互联网词语对法律语料进行了扩充，默认新词典改为`wiki_baike_law_doc.dic`。词典共7627641个词，其中法律词231316个，其余为网络词。
+
+持久化
+=============
+
+* 用joblib替换marshal做持久化
 """
 
 
 setup(name='lawa',
-      version='1.2.5',
+      version='1.2.6',
       description='Chinese Words Segmentation Utilities',
       long_description=LONGDOC,
       author='Shen Dezhou',

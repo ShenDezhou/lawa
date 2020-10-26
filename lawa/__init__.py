@@ -1,9 +1,10 @@
 from __future__ import absolute_import, unicode_literals
 
-__version__ = '1.2.0'
+__version__ = '1.2.6'
 __license__ = 'MIT'
 
 import marshal
+import joblib
 import re
 import tempfile
 import threading
@@ -13,6 +14,8 @@ from math import log
 
 from . import finalseg
 from ._compat import *
+
+
 
 if os.name == 'nt':
     from shutil import move as _replace_file
@@ -64,6 +67,7 @@ class Tokenizer(object):
         self.initialized = False
         self.tmp_dir = None
         self.cache_file = None
+        self.joblib = False
 
     def __repr__(self):
         return '<Tokenizer dictionary=%r>' % self.dictionary
@@ -76,7 +80,10 @@ class Tokenizer(object):
         for lineno, line in enumerate(f, 1):
             try:
                 line = line.strip().decode('utf-8')
-                word, freq = line.split(' ')[:2]
+                if ' ' in line:
+                    word, freq = line.split(' ')[:2]
+                else:
+                    word, freq = line, 1
                 freq = int(freq)
                 lfreq[word] = freq
                 ltotal += freq
@@ -132,8 +139,11 @@ class Tokenizer(object):
                 default_logger.debug(
                     "Loading model from cache %s" % cache_file)
                 try:
-                    with open(cache_file, 'rb') as cf:
-                        self.FREQ, self.total = marshal.load(cf)
+                    if self.joblib:
+                        self.FREQ, self.total = joblib.load(cache_file)
+                    else:
+                        with open(cache_file, 'rb') as cf:
+                            self.FREQ, self.total = marshal.load(cf)
                     load_from_cache_fail = False
                 except Exception:
                     load_from_cache_fail = True
@@ -148,9 +158,13 @@ class Tokenizer(object):
                     try:
                         # prevent moving across different filesystems
                         fd, fpath = tempfile.mkstemp(dir=tmpdir)
-                        with os.fdopen(fd, 'wb') as temp_cache_file:
-                            marshal.dump(
-                                (self.FREQ, self.total), temp_cache_file)
+                        if self.joblib:
+                            joblib.dump((self.FREQ, self.total), fpath, compress=0)
+                        else:
+                            with os.fdopen(fd, 'wb') as temp_cache_file:
+                                marshal.dump(
+                                    (self.FREQ, self.total), temp_cache_file)
+
                         _replace_file(fpath, cache_file)
                     except Exception:
                         default_logger.exception("Dump cache file failed.")
