@@ -52,11 +52,16 @@ GitHub: https://github.com/ShenDezhou/lawa
 
 * 对于全角字符同样看作ASCII字符（英文字符）进行处理：
     * 例：“---６０００元” 分成  -, -, -, ６０００, 元
+
+新增网络词典
+=============
+
+* 从中文维基和百度百科收集了一些互联网词语对法律语料进行了扩充，默认新词典改为`wiki_baike_law_doc.dic`。词典共7627641个词，其中法律词231316个，其余为网络词。
 """
 
 
 setup(name='lawa',
-      version='1.2.4',
+      version='1.2.5',
       description='Chinese Words Segmentation Utilities',
       long_description=LONGDOC,
       author='Shen Dezhou',

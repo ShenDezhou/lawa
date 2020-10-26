@@ -22,7 +22,7 @@ else:
 _get_abs_path = lambda path: os.path.normpath(os.path.join(os.getcwd(), path))
 
 DEFAULT_DICT = None
-DEFAULT_DICT_NAME = "lawa_doc.dic"
+DEFAULT_DICT_NAME = "wiki_baike_law_doc.dic"
 
 log_console = logging.StreamHandler(sys.stderr)
 default_logger = logging.getLogger(__name__)
@@ -41,7 +41,7 @@ re_eng = re.compile('[a-zA-Z0-9\uFF10-\uFF5A]', re.U)
 # \r\n|\s : whitespace characters. Will not be handled.
 # re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%]+)", re.U)
 # Adding "-" symbol in re_han_default
-re_han_default = re.compile("([\u4E00-\u9FD5\uFF10-\uFF5Aa-zA-Z0-9+#&\._%]+)", re.U)
+re_han_default = re.compile("([\u4E00-\u9FD5\uFF10-\uFF5Aa-zA-Z0-9+#&\._%—]+)", re.U)
 
 re_skip_default = re.compile("(\r\n|\s|\u3000)", re.U)
 
@@ -116,10 +116,10 @@ class Tokenizer(object):
                 cache_file = self.cache_file
             # default dictionary
             elif abs_path == DEFAULT_DICT:
-                cache_file = "jieba.cache"
+                cache_file = "lawa.cache"
             # custom dictionary
             else:
-                cache_file = "jieba.u%s.cache" % md5(
+                cache_file = "lawa.u%s.cache" % md5(
                     abs_path.encode('utf-8', 'replace')).hexdigest()
             cache_file = os.path.join(
                 self.tmp_dir or tempfile.gettempdir(), cache_file)
