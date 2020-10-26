@@ -29,12 +29,18 @@ class TorchResource:
 
     def __init__(self):
         logger.info("...")
-        self.cut = lawa.cut_for_search
+        self.cut = lawa.cut
+        self.cut_search = lawa.cut_for_search
+        #早加载
+        logger.info(self.cut("中国人民"))
         logger.info("###")
 
-    def process_context(self, line):
+    def process_context(self, line, mode):
         start = time.process_time_ns()
-        words = self.cut(line)
+        if mode == 1:
+            words = self.cut(line)
+        elif mode == 0:
+            words = self.cut_search(line)
         words = [{'word':word} for word in words]
         logger.info("cut:{}ns".format(time.process_time_ns() - start))
         return {'data':words}
@@ -46,7 +52,8 @@ class TorchResource:
         resp.set_header('Access-Control-Allow-Headers', '*')
         resp.set_header('Access-Control-Allow-Credentials', 'true')
         line = req.get_param('text', True)
-        resp.media = self.process_context(line)
+        mode = req.get_param('mode', default=0)
+        resp.media = self.process_context(line, mode)
         logger.info("###")
 
     def on_post(self, req, resp):
@@ -59,7 +66,8 @@ class TorchResource:
         start = time.process_time_ns()
         jsondata = json.loads(req.stream.read(req.content_length))
         line=jsondata['text']
-        resp.media = self.process_context(line)
+        mode = jsondata.get('mode', 0)
+        resp.media = self.process_context(line, mode)
         logger.info("tot:{}ns".format(time.process_time_ns() - start))
         logger.info("###")
 
