@@ -151,7 +151,8 @@ print(", ".join(seg_list))
 总结来看，加载词典后，”游戏版权“、”短视频平台“、”侵权案件“，”吸引用户”，“短视频”等词被分成单词，在互联网领域也适宜。
 
 # Docker化
+`docker run -dit --network host lawawordsegment:1.0 python3 torch_server.py -p 58085 -m 0`
 `docker run -dit --network host lawawordsegment:1.0 python3 torch_server.py -p 58086 -m 1`
 
-* m = 0 cut
+* m = 0 cut for exact
 * m = 1 cut for search
