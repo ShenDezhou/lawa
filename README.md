@@ -156,3 +156,8 @@ print(", ".join(seg_list))
 
 * m = 0 cut for exact
 * m = 1 cut for search
+
+# Docker Compose管理
+`alias dc=docker-compose`
+`dc up -d`
+`dc -f docker-compose-forsearch.yaml up -d`

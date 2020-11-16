@@ -1,0 +1,5 @@
+services:
+  web:
+    image: lawawordsegment:1.0
+    network_mode: "host"
+    command: python3 torch_server.py -p 58086 -m 1
