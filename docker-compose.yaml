@@ -2,4 +2,5 @@ services:
   web:
     image: lawawordsegment:1.0
     network_mode: "host"
+    container_name: lawa_smart
     command: python3 torch_server.py -p 58085 -m 0

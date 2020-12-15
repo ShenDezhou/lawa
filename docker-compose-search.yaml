@@ -1,0 +1,6 @@
+services:
+  web:
+    image: lawawordsegment:1.0
+    network_mode: "host"
+    container_name: lawa_for_search
+    command: python3 torch_server.py -p 58086 -m 1
